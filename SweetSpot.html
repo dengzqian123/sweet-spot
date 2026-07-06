@@ -117,6 +117,9 @@ body{font-family:var(--font);background:var(--bg);min-height:100vh;color:var(--t
 .pet-opt .po-e{font-size:48px;display:block;margin-bottom:6px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.12));}
 .pet-opt .po-n{font-size:13px;font-weight:700;color:var(--pd);}
 .pet-opt .po-d{font-size:10px;color:var(--tl);margin-top:2px;}
+.pet-acts-bar{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;justify-content:center;}
+.pet-act-tag{font-size:12px;background:var(--pl);padding:4px 10px;border-radius:20px;border:1px solid var(--ac);color:var(--pd);cursor:pointer;transition:all .2s;}
+.pet-act-tag:active{transform:scale(.95);background:var(--p);color:#fff;}
 .pet-scene{background:linear-gradient(180deg,#87CEEB 0%,#E0F7FA 55%,#90EE90 55%,#7CFC00 100%);border-radius:var(--r);height:200px;position:relative;overflow:hidden;margin-bottom:16px;border:3px solid var(--ac);}
 .pet-scene .sun{position:absolute;top:12px;right:18px;font-size:36px;animation:sp 20s linear infinite;}
 @keyframes sp{from{transform:rotate(0)}to{transform:rotate(360deg)}}
@@ -357,39 +360,39 @@ function sv(){localStorage.setItem('ss2',JSON.stringify(D));}
 
 //===PETS===
 var pets=[
-{id:'lianlian',name:'恋恋',emoji:'🐶',color:'#FFB6C1',desc:'治愈系 · 纯爱陪伴',stages:[
-{name:'Lv.0 刚来到身边',desc:'极度依赖，轻触安抚',dlg:'"我有点怕，但想靠近你…"'},
-{name:'Lv.1 开始熟悉',desc:'喂食/陪伴',dlg:'"你在我就安心了"'},
-{name:'Lv.2 建立信任',desc:'互动玩耍',dlg:'"我开始喜欢你了！"'},
-{name:'Lv.3 活泼增强',desc:'拍照/陪玩',dlg:'"陪我玩嘛！"'},
-{name:'Lv.4 性格形成',desc:'训练指令',dlg:'"我会听你的！"'},
-{name:'Lv.5 互动增强',desc:'外出/散步',dlg:'"一起去看看世界"'},
-{name:'Lv.6 情感深化',desc:'互动回应',dlg:'"你是最重要的人"'},
-{name:'Lv.7 默契陪伴',desc:'日常互动',dlg:'"我懂你了"'},
-{name:'Lv.8 高度依赖',desc:'情绪安抚',dlg:'"只想和你在一起"'},
-{name:'Lv.9 稳定陪伴',desc:'长期互动',dlg:'"一直都在"'}]},
-{id:'tangtang',name:'糖糖',emoji:'🐕',color:'#D2B48C',desc:'甜宠系 · 活泼撒娇',stages:[
-{name:'Lv.0 刚来到身边',desc:'极度依赖，轻触安抚',dlg:'"我有点怕，但想靠近你…"'},
-{name:'Lv.1 开始熟悉',desc:'喂食/陪伴',dlg:'"你在我就安心了"'},
-{name:'Lv.2 建立信任',desc:'互动玩耍',dlg:'"我开始喜欢你了！"'},
-{name:'Lv.3 活泼增强',desc:'拍照/陪玩',dlg:'"陪我玩嘛！"'},
-{name:'Lv.4 性格形成',desc:'训练指令',dlg:'"我会听你的！"'},
-{name:'Lv.5 互动增强',desc:'外出/散步',dlg:'"一起去看看世界"'},
-{name:'Lv.6 情感深化',desc:'互动回应',dlg:'"你是最重要的人"'},
-{name:'Lv.7 默契陪伴',desc:'日常互动',dlg:'"我懂你了"'},
-{name:'Lv.8 高度依赖',desc:'情绪安抚',dlg:'"只想和你在一起"'},
-{name:'Lv.9 稳定陪伴',desc:'长期互动',dlg:'"一直都在"'}]},
-{id:'qiuqiu',name:'球球',emoji:'🐱',color:'#B0C4DE',desc:'傲娇系 · 轻互动成长',stages:[
-{name:'Lv.0 刚来到身边',desc:'极度依赖，轻触安抚',dlg:'"哼…我才不怕呢"'},
-{name:'Lv.1 开始熟悉',desc:'喂食/陪伴',dlg:'"好吧，勉强让你摸"'},
-{name:'Lv.2 建立信任',desc:'互动玩耍',dlg:'"别走嘛…陪我一会"'},
-{name:'Lv.3 活泼增强',desc:'拍照/陪玩',dlg:'"看本喵多可爱！"'},
-{name:'Lv.4 性格形成',desc:'训练指令',dlg:'"听你的也不是不行…"'},
-{name:'Lv.5 互动增强',desc:'外出/散步',dlg:'"外面的世界嘛…还行"'},
-{name:'Lv.6 情感深化',desc:'互动回应',dlg:'"你…还算不错吧"'},
-{name:'Lv.7 默契陪伴',desc:'日常互动',dlg:'"我就知道你会来"'},
-{name:'Lv.8 高度依赖',desc:'情绪安抚',dlg:'"别离开我…才不是求你"'},
-{name:'Lv.9 稳定陪伴',dlg:'"有你在…真好"'}]}];
+{id:'lianlian',name:'恋恋',emoji:'🐶',color:'#FFB6C1',desc:'治愈系 · 温柔黏人 · 纯爱陪伴',acts:['摇尾巴','蹭手','求抱抱','趴肩','眨眼','转圈','贴贴','歪头','睡觉','送心心'],stages:[
+{name:'初生依赖',desc:'缩成一团、轻轻蹭手、抬头看你',dlg:'"我有点害怕，你能抱抱我吗？"'},
+{name:'适应环境',desc:'慢慢靠近、摇尾巴、跟随脚步',dlg:'"你在身边，我就安心啦。"'},
+{name:'开始信任',desc:'打滚撒娇、轻碰手心、求摸头',dlg:'"我开始喜欢和你待在一起了！"'},
+{name:'活泼成长',desc:'转圈欢迎、扑向怀里、追着玩具跑',dlg:'"陪我玩嘛，我今天超有精神！"'},
+{name:'性格形成',desc:'坐下听令、歪头回应、开心拍爪',dlg:'"我会努力做你的乖宝宝。"'},
+{name:'互动升温',desc:'散步贴贴、并肩走路、回头等你',dlg:'"一起去看看外面的世界吧。"'},
+{name:'情感加深',desc:'主动依偎、趴腿休息、睡前撒娇',dlg:'"你就是我最信任的人。"'},
+{name:'稳定陪伴',desc:'陪你发呆、安静趴身边、轻轻蹭肩',dlg:'"就这样陪着你，也很幸福。"'},
+{name:'亲密依赖',desc:'扑抱抱、亲亲脸颊、睡前贴贴',dlg:'"我只想黏着你，一直不分开。"'},
+{name:'永恒陪伴',desc:'送心心、披风出场、守护姿态',dlg:'"以后每一天，我都会陪着你。"'}]},
+{id:'tangtang',name:'糖糖',emoji:'🐕',color:'#D2B48C',desc:'甜宠系 · 甜美活泼 · 高频互动',acts:['飞扑','舔手','摇尾巴','叼玩具','蹦跳','举爪','求亲亲','卖萌眨眼','趴睡','开心转圈'],stages:[
+{name:'初见萌化',desc:'趴睡卖萌、抬眼偷看、轻轻挪步',dlg:'"我会不会也被你喜欢呀？"'},
+{name:'快速适应',desc:'摇尾靠近、蹭蹭脚边、舔舔手指',dlg:'"谢谢你照顾我，我好开心呀！"'},
+{name:'熟悉互动',desc:'叼球过来、原地蹦跳、撒娇求玩',dlg:'"快来陪我玩，我最期待你啦！"'},
+{name:'甜宠成长',desc:'举爪回应、开心飞扑、求抱抱',dlg:'"我已经把你当成最重要的人啦。"'},
+{name:'顽皮活跃',desc:'追玩具、转圈庆祝、扑到怀里',dlg:'"和你一起，什么都变得超有趣！"'},
+{name:'互动加深',desc:'洗澡卖萌、出门跟跑、看你眨眼',dlg:'"今天也想和你度过一整天。"'},
+{name:'情绪联结',desc:'你难过时陪着、鼻尖碰碰你、安慰蹭脸',dlg:'"别不开心，我会一直在呀。"'},
+{name:'默契稳定',desc:'并肩坐着、拍照微笑、等你回家',dlg:'"最幸福的事，就是每天见到你。"'},
+{name:'高糖陪伴',desc:'求亲亲、送礼物、围着你打转',dlg:'"你对我最好，我也最最喜欢你！"'},
+{name:'王冠时刻',desc:'戴王冠亮相、守护站姿、比心动作',dlg:'"我会一直做你的专属小甜宠。"'}]},
+{id:'qiuqiu',name:'球球',emoji:'🐱',color:'#B0C4DE',desc:'傲娇系 · 安静慢热 · 细腻治愈',acts:['甩尾巴','踩奶','蹭腿','舔爪','蜷缩睡觉','盯着你看','轻轻喵叫','扑蝴蝶','窝怀里','优雅回头'],stages:[
+{name:'慢热观察',desc:'缩成猫团、警觉张望、偷偷看你',dlg:'"先让我观察一下你吧……"'},
+{name:'逐渐放松',desc:'轻轻喵叫、靠近闻闻、安静趴下',dlg:'"你看起来，好像还不错。"'},
+{name:'愿意接触',desc:'蹭腿示好、抬爪碰你、眨眼回应',dlg:'"我只是……稍微有点想亲近你。"'},
+{name:'熟悉依赖',desc:'踩奶、卧在腿上、乖乖看着你',dlg:'"待在你身边，我会更放松。"'},
+{name:'傲娇互动',desc:'追逗猫棒、轻扑玩具、甩尾撒娇',dlg:'"才不是想玩，只是刚好无聊。"'},
+{name:'关系升温',desc:'陪你读书、桌边守着、轻声喵喵',dlg:'"我允许你继续陪着我。"'},
+{name:'温柔信任',desc:'主动窝怀里、蹭脸安慰、呼噜呼噜',dlg:'"嗯……你对我来说，很重要。"'},
+{name:'稳定陪伴',desc:'并排午睡、默默守候、一起看窗外',dlg:'"安静地和你待着，就很好。"'},
+{name:'专属依恋',desc:'送你小礼物、求摸下巴、贴肩休息',dlg:'"你已经是我的专属铲屎官了。"'},
+{name:'守护模式',desc:'戴王冠、披斗篷、优雅守护',dlg:'"既然认定你了，我就会一直陪着你。"'}]}];
 var stageThresh=[0,3,15,30,60,90,120,180,270,360];
 
 //===MOODS===
@@ -438,9 +441,10 @@ function renderPush(){var c=document.getElementById('mpc'),ks=Object.keys(D.push
 function renderPet(){var h='';for(var i=0;i<pets.length;i++){var p=pets[i],s=D.curPet===i?'sel':'';h+='<div class="pet-opt '+s+'" onclick="pickPet('+i+')"><span class="po-e">'+p.emoji+'</span><div class="po-n">'+p.name+'</div><div class="po-d">'+p.desc+'</div></div>';}document.getElementById('petSel').innerHTML=h;updPetUI();}
 function pickPet(i){D.curPet=i;sv();renderPet();}
 function getStage(){var day=D.petDay||0;for(var i=stageThresh.length-1;i>=0;i--)if(day>=stageThresh[i])return i;return 0;}
-function updPetUI(){var p=pets[D.curPet],si=getStage(),st=p.stages[si],s=D.petStats[D.curPet];document.getElementById('petCh').textContent=p.emoji;document.getElementById('petTag').textContent=p.name;document.getElementById('psLv').textContent='🌱 '+st.name;document.getElementById('psDesc').textContent=st.desc;document.getElementById('psDlg').textContent=st.dlg;document.getElementById('sHung').style.width=s.h+'%';document.getElementById('vHung').textContent=s.h+'%';document.getElementById('sMood').style.width=s.m+'%';document.getElementById('vMood').textContent=s.m+'%';document.getElementById('sLove').style.width=s.l+'%';document.getElementById('vLove').textContent=s.l+'%';var opts=document.querySelectorAll('.pet-opt');for(var i=0;i<opts.length;i++){if(i===D.curPet)opts[i].classList.add('sel');else opts[i].classList.remove('sel');}}
+function updPetUI(){var p=pets[D.curPet],si=getStage(),st=p.stages[si],s=D.petStats[D.curPet];document.getElementById('petCh').textContent=p.emoji;document.getElementById('petTag').textContent=p.name;document.getElementById('psLv').textContent='Lv.'+si+' '+st.name;document.getElementById('psDesc').textContent=st.desc;document.getElementById('psDlg').textContent=st.dlg;document.getElementById('sHung').style.width=s.h+'%';document.getElementById('vHung').textContent=s.h+'%';document.getElementById('sMood').style.width=s.m+'%';document.getElementById('vMood').textContent=s.m+'%';document.getElementById('sLove').style.width=s.l+'%';document.getElementById('vLove').textContent=s.l+'%';var sc=document.getElementById('petStage');var actsHtml='<div class="pet-acts-bar">';for(var a=0;a<p.acts.length;a++)actsHtml+='<span class="pet-act-tag" data-act="'+p.acts[a]+'">'+p.acts[a]+'</span>';actsHtml+='</div><div style="font-size:11px;color:var(--tl);margin-top:6px;text-align:center;">互动天数: '+(D.petDay||0)+'天 · 下一阶段: '+(si<9?stageThresh[si+1]+'天':'已满级')+'</div>';sc.innerHTML='<div class="ps-lv" id="psLv">Lv.'+si+' '+st.name+'</div><div class="ps-desc" id="psDesc">'+st.desc+'</div><div class="ps-dialog" id="psDlg">'+st.dlg+'</div>'+actsHtml;setTimeout(function(){var tags=document.querySelectorAll('.pet-act-tag');for(var j=0;j<tags.length;j++){tags[j].addEventListener('click',function(){doPetAct(this,this.dataset.act);});}},0);var opts=document.querySelectorAll('.pet-opt');for(var i=0;i<opts.length;i++){if(i===D.curPet)opts[i].classList.add('sel');else opts[i].classList.remove('sel');}}
 function petTap(){var p=pets[D.curPet],si=getStage(),st=p.stages[si];showModal('🐾 '+p.name+' 说',"<div style='text-align:center;font-size:18px;padding:20px;'>"+st.dlg+"</div><div style='text-align:center;font-size:13px;color:var(--tl);margin-top:8px;'>当前阶段: "+st.name+"</div>");}
 function petDo(act){var s=D.petStats[D.curPet],gain=5;D.petDay=(D.petDay||0)+1;if(act==='feed'){s.h=Math.min(100,s.h+20);gain=10;}else if(act==='play'){s.m=Math.min(100,s.m+15);s.h=Math.max(0,s.h-10);gain=8;}else if(act==='bath'){s.m=Math.min(100,s.m+10);gain=5;}else if(act==='hug'){s.l=Math.min(100,s.l+12);s.m=Math.min(100,s.m+8);gain=5;}else if(act==='walk'){s.l=Math.min(100,s.l+8);s.m=Math.min(100,s.m+5);gain=6;}else if(act==='train'){s.l=Math.min(100,s.l+6);gain=7;}sv();updPetUI();addC(gain,document.getElementById('petCh'));var acts={feed:'🍖 喂食',play:'🎾 玩耍',bath:'🛁 洗澡',hug:'🤗 抱抱',walk:'🚶 散步',train:'🎓 训练'};toast(acts[act]+'成功！宠物成长中~');}
+function doPetAct(el,act){var p=pets[D.curPet],si=getStage();el.style.background='var(--p)';el.style.color='#fff';el.style.transform='scale(1.1)';setTimeout(function(){el.style.background='';el.style.color='';el.style.transform='';},400);D.petDay=(D.petDay||0)+1;D.petStats[D.curPet].l=Math.min(100,D.petStats[D.curPet].l+5);D.petStats[D.curPet].m=Math.min(100,D.petStats[D.curPet].m+5);sv();updPetUI();addC(3,el);showModal('🐾 '+p.name+' '+act+'啦！','<div style="text-align:center;"><div style="font-size:50px;padding:10px;">'+p.emoji+'</div><div style="font-size:18px;color:var(--pd);font-weight:700;margin:8px 0;">'+act+'</div><div style="font-size:14px;color:var(--tl);">'+p.stages[si].desc+'</div><div style="font-size:15px;margin-top:10px;font-style:italic;background:var(--pl);padding:10px;border-radius:12px;border:1px dashed var(--ac);">'+p.stages[si].dlg+'</div></div>');}
 
 //===CAFE===
 var cfLvls=[{n:'街头小店',b:'🏚️'},{n:'温馨小店',b:'🏪'},{n:'网红咖啡',b:'🏢'},{n:'连锁品牌',b:'🏛️'},{n:'咖啡帝国',b:'🏰'}];
