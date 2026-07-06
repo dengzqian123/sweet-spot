@@ -234,6 +234,100 @@ body{font-family:var(--font);background:var(--bg);min-height:100vh;color:var(--t
 .pset input{padding:10px;border:2px solid var(--pl);border-radius:var(--rs);font-family:var(--font);font-size:13px;width:130px;outline:none;color:var(--tx);}
 
 @media(max-width:360px){.mg{grid-template-columns:repeat(4,1fr);}.cf-menu{grid-template-columns:1fr;}.shg{grid-template-columns:repeat(2,1fr);}.lg{grid-template-columns:1fr;}}
+
+/* ===== 签到系统 ===== */
+.checkin-card{background:linear-gradient(135deg,var(--p),var(--pd));border-radius:var(--r);padding:18px;margin:14px 0;color:#fff;box-shadow:var(--sh);position:relative;overflow:hidden;}
+.checkin-card::before{content:'';position:absolute;top:-20px;right:-20px;width:100px;height:100px;background:rgba(255,255,255,.1);border-radius:50%;}
+.ci-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.ci-hd h3{font-size:18px;letter-spacing:1px;}
+.ci-streak{font-size:13px;background:rgba(255,255,255,.2);padding:4px 12px;border-radius:20px;}
+.ci-btn{width:100%;padding:14px;background:rgba(255,255,255,.25);border:2px dashed rgba(255,255,255,.5);border-radius:var(--rs);color:#fff;font-family:var(--font);font-size:16px;font-weight:700;cursor:pointer;transition:all .3s;}
+.ci-btn:hover{background:rgba(255,255,255,.35);}
+.ci-btn.done{background:rgba(255,255,255,.15);border-style:solid;cursor:default;}
+.ci-reward{display:flex;gap:10px;margin-top:10px;font-size:12px;}
+.ci-reward span{background:rgba(255,255,255,.2);padding:4px 10px;border-radius:12px;}
+
+/* ===== 亲密度系统 ===== */
+.intm-bar{background:var(--cb);border-radius:var(--r);padding:16px;margin:14px 0;box-shadow:var(--sh2);border:2px solid var(--ac);}
+.intm-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.intm-lv{font-size:14px;font-weight:700;color:var(--pd);background:var(--pl);padding:4px 12px;border-radius:20px;}
+.intm-title{font-size:13px;color:var(--tl);}
+.intm-pg{width:100%;height:14px;background:#FFE4E1;border-radius:7px;overflow:hidden;}
+.intm-pf{height:100%;border-radius:7px;transition:width .6s;background:linear-gradient(90deg,var(--p),var(--pd));}
+.intm-info{display:flex;justify-content:space-between;margin-top:6px;font-size:11px;color:var(--tl);}
+.titles-wrap{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+.title-tag{font-size:11px;background:linear-gradient(135deg,#FFD700,#FFA500);color:#fff;padding:3px 10px;border-radius:15px;font-weight:700;}
+
+/* ===== 家园系统 ===== */
+.home-scene{background:linear-gradient(180deg,#87CEEB 0%,#E0F7FA 40%,#90EE90 40%,#7CFC00 100%);border-radius:var(--r);height:220px;position:relative;overflow:hidden;margin-bottom:14px;border:3px solid var(--ac);}
+.home-building{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-size:80px;filter:drop-shadow(0 6px 12px rgba(0,0,0,.15));transition:transform .3s;}
+.home-building:active{transform:translateX(-50%) scale(1.1);}
+.home-pet-zone{position:absolute;bottom:10px;left:15px;font-size:40px;}
+.home-furn{position:absolute;font-size:28px;transition:transform .2s;cursor:pointer;}
+.home-furn:active{transform:scale(1.2);}
+.home-info{background:var(--cb);border-radius:var(--rs);padding:12px;margin-bottom:14px;text-align:center;border:2px solid var(--ac);}
+.home-info .hn{font-size:16px;font-weight:700;color:var(--pd);}
+.home-info .hl{font-size:12px;color:var(--tl);margin-top:4px;}
+.home-upg-btn{width:100%;padding:12px;background:linear-gradient(135deg,#FFD700,#FFA500);color:#fff;border:none;border-radius:var(--rs);font-family:var(--font);font-size:15px;font-weight:700;cursor:pointer;margin-top:10px;}
+.home-upg-btn:disabled{opacity:.5;cursor:not-allowed;}
+.furn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;}
+.furn-item{background:rgba(255,255,255,.6);border:2px solid var(--ac);border-radius:var(--rs);padding:10px 6px;text-align:center;cursor:pointer;transition:all .2s;}
+.furn-item.own{border-color:#FFD700;background:linear-gradient(135deg,#FFF8DC,#FFE4B5);}
+.furn-item .fi-e{font-size:28px;display:block;margin-bottom:3px;}
+.furn-item .fi-n{font-size:11px;color:var(--tx);}
+.furn-item .fi-c{font-size:10px;color:#DAA520;}
+
+/* ===== 小店经营系统 ===== */
+.shop-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.shop-rev{font-size:13px;color:var(--tl);}
+.shop-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px;}
+.shop-item{background:rgba(255,255,255,.7);border:2px solid var(--ac);border-radius:var(--rs);padding:14px 10px;text-align:center;cursor:pointer;transition:all .2s;position:relative;}
+.shop-item:active{transform:translateY(-3px);box-shadow:var(--sh2);}
+.shop-item .si-e{font-size:36px;display:block;margin-bottom:4px;}
+.shop-item .si-n{font-size:12px;font-weight:700;}
+.shop-item .si-p{font-size:11px;color:#DAA520;margin-top:2px;}
+.shop-item .si-st{font-size:10px;color:var(--tl);margin-top:4px;}
+.shop-item .si-sold{position:absolute;top:4px;right:4px;background:#FF6B6B;color:#fff;font-size:9px;padding:2px 6px;border-radius:10px;}
+.sell-btn{width:100%;padding:10px;background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;border:none;border-radius:var(--rs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;margin-top:8px;}
+.sell-btn:disabled{opacity:.5;cursor:not-allowed;}
+
+/* ===== 回忆时间轴 ===== */
+.timeline{position:relative;padding-left:24px;margin:14px 0;}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--p),var(--pd));border-radius:3px;}
+.tl-item{position:relative;margin-bottom:16px;background:var(--cb);border-radius:var(--rs);padding:12px 14px;border:2px solid var(--ac);}
+.tl-item::before{content:'';position:absolute;left:-19px;top:14px;width:12px;height:12px;background:var(--p);border-radius:50%;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.15);}
+.tl-date{font-size:11px;color:var(--tl);margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:700;color:var(--pd);}
+.tl-desc{font-size:12px;color:var(--tx);margin-top:4px;}
+.tl-img{font-size:32px;text-align:center;margin-top:6px;}
+
+/* ===== 互动动作面板 ===== */
+.act-panel{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px;}
+.act-btn{background:linear-gradient(135deg,var(--pl),#fff);border:2px solid var(--ac);border-radius:var(--rs);padding:10px 4px;text-align:center;cursor:pointer;font-size:12px;color:var(--pd);transition:all .2s;}
+.act-btn:active{transform:scale(.95);}
+.act-btn .act-e{font-size:24px;display:block;margin-bottom:3px;}
+.act-btn.lk{opacity:.4;cursor:not-allowed;filter:grayscale(.7);}
+
+/* ===== 照片墙增强 ===== */
+.pwall{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;}
+.pw-item{aspect-ratio:1;background:rgba(255,255,255,.5);border-radius:var(--rs);display:flex;align-items:center;justify-content:center;border:2px dashed var(--ac);position:relative;overflow:hidden;transition:all .2s;}
+.pw-item:active{border-color:var(--p);transform:scale(1.03);}
+.pw-item img{width:100%;height:100%;object-fit:cover;border-radius:var(--rs);}
+.pw-item .pw-d{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.45);color:#fff;font-size:9px;padding:3px;text-align:center;}
+
+/* ===== 聊天与语音 ===== */
+.chat-box{background:var(--cb);border-radius:var(--r);padding:16px;margin:14px 0;box-shadow:var(--sh2);border:2px solid var(--ac);}
+.chat-msgs{max-height:200px;overflow-y:auto;margin-bottom:10px;}
+.chat-msg{display:flex;gap:8px;margin-bottom:10px;}
+.chat-msg.self{flex-direction:row-reverse;}
+.chat-msg .chat-av{width:32px;height:32px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.chat-msg .chat-bubble{background:var(--pl);padding:8px 12px;border-radius:14px;font-size:13px;max-width:70%;word-break:break-word;}
+.chat-msg.self .chat-bubble{background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;}
+.chat-input{display:flex;gap:8px;}
+.chat-input input{flex:1;padding:10px 12px;border:2px solid var(--pl);border-radius:var(--rs);font-family:var(--font);font-size:13px;outline:none;}
+.chat-input button{padding:10px 14px;background:var(--p);color:#fff;border:none;border-radius:var(--rs);font-family:var(--font);font-size:13px;cursor:pointer;}
+.voice-btn{padding:10px 14px;background:linear-gradient(135deg,#FF6B6B,#E74C3C);color:#fff;border:none;border-radius:var(--rs);font-family:var(--font);font-size:13px;cursor:pointer;}
+
 </style>
 </head>
 <body class="tp">
@@ -282,6 +376,35 @@ body{font-family:var(--font);background:var(--bg);min-height:100vh;color:var(--t
   <div class="card"><div class="ct"><span class="ic">😊</span>今天的心情</div><div class="mg" id="mGrid"></div><textarea class="mn" id="mNote" rows="2" placeholder="记录今天的心情..."></textarea><div class="pt"><span>💌 推送给对方</span><div class="sw on" id="pushSw" onclick="this.classList.toggle('on')"></div></div><button class="btn" onclick="saveMood()">保存并推送</button></div>
   <div class="mpc" id="mpc"><div class="ti-t" style="font-size:12px;color:var(--tl);">💬 对方最新心情</div><div style="margin-top:6px;"><span id="pmE" style="font-size:28px;vertical-align:middle;margin-right:8px;">🥰</span><span id="pmT" style="font-size:13px;"></span></div></div>
   <div class="card"><div class="ct"><span class="ic">💑</span>在一起</div><div style="text-align:center;padding:10px;"><div style="font-size:42px;font-weight:700;color:var(--pd);" id="tgD">365</div><div style="font-size:13px;color:var(--tl);">天 · 始于 2025-07-06</div></div></div>
+  
+  <!-- 签到系统 -->
+  <div class="checkin-card" id="ciCard">
+    <div class="ci-hd"><h3>📅 每日签到</h3><span class="ci-streak" id="ciStreak">🔥 连续 0 天</span></div>
+    <button class="ci-btn" id="ciBtn" onclick="doCheckIn()">✨ 点击签到领取奖励</button>
+    <div class="ci-reward" id="ciReward"><span>🪙 +10</span><span>💎 +5</span><span>亲密度 +3</span></div>
+  </div>
+  
+  <!-- 亲密度系统 -->
+  <div class="intm-bar">
+    <div class="intm-top"><span class="intm-lv" id="intmLv">💕 Lv.1 初识</span><span class="intm-title" id="intmTitle">获得称号: 甜蜜新手</span></div>
+    <div class="intm-pg"><div class="intm-pf" id="intmPf" style="width:5%;"></div></div>
+    <div class="intm-info"><span id="intmCur">0 / 100</span><span id="intmNext">下一级: 暧昧</span></span></div>
+    <div class="titles-wrap" id="titlesWrap"><span class="title-tag">🌱 甜蜜新手</span></div>
+  </div>
+  
+  <!-- 情侣互动 -->
+  <div class="card"><div class="ct"><span class="ic">💞</span>情侣互动</div>
+    <div class="act-panel">
+      <div class="act-btn" onclick="doCoupleAct('hug')"><span class="act-e">🤗</span>抱抱</div>
+      <div class="act-btn" onclick="doCoupleAct('kiss')"><span class="act-e">💋</span>亲亲</div>
+      <div class="act-btn" onclick="doCoupleAct('chat')"><span class="act-e">💬</span>聊天</div>
+      <div class="act-btn" onclick="doCoupleAct('gift')"><span class="act-e">🎁</span>送礼</div>
+      <div class="act-btn" onclick="doCoupleAct('date')"><span class="act-e">🌹</span>约会</div>
+      <div class="act-btn" onclick="doCoupleAct('cook')"><span class="act-e">🍳</span>做饭</div>
+      <div class="act-btn" onclick="doCoupleAct('movie')"><span class="act-e">🎬</span>看电影</div>
+      <div class="act-btn" onclick="doCoupleAct('travel')"><span class="act-e">✈️</span>旅行</div>
+    </div>
+  </div>
 </div>
 
 <!-- PAGE: PET -->
@@ -311,6 +434,36 @@ body{font-family:var(--font);background:var(--bg);min-height:100vh;color:var(--t
   </div>
 </div>
 
+
+<!-- PAGE: HOME -->
+<div class="page" id="pg-home">
+  <div class="card">
+    <div class="ct"><span class="ic">🏠</span>我们的家园</div>
+    <div class="home-scene" id="homeScene">
+      <div class="sun">☀️</div><div class="cld c1">☁️</div><div class="cld c2">☁️</div>
+      <div class="home-building" id="homeBld" onclick="tapHome()">🏚️</div>
+      <div class="home-pet-zone" id="homePet">🐾</div>
+    </div>
+    <div class="home-info">
+      <div class="hn" id="homeName">🏚️ 温馨小屋</div>
+      <div class="hl" id="homeDesc">Lv.1 · 家具 1/5 · 还需 500🪙 升级</div>
+      <button class="home-upg-btn" id="homeUpg" onclick="upgradeHome()">🔨 升级家园 (500🪙)</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ct"><span class="ic">🛋️</span>家具商店</div>
+    <div class="furn-grid" id="furnGrid"></div>
+  </div>
+  <div class="card">
+    <div class="ct"><span class="ic">📸</span>照片墙</div>
+    <div class="pwall" id="pwall"></div>
+  </div>
+  <div class="card">
+    <div class="ct"><span class="ic">⏳</span>回忆时间轴</div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</div>
+
 <!-- PAGE: CAFE -->
 <div class="page" id="pg-cafe">
   <div class="card">
@@ -319,6 +472,9 @@ body{font-family:var(--font);background:var(--bg);min-height:100vh;color:var(--t
     <div style="margin-bottom:14px;"><span class="stag st-sp">🌸 春季特调</span><span class="stag st-su">☀️ 夏日限定</span><span class="stag st-au">🍂 秋意浓</span><span class="stag st-wi">❄️ 暖冬系列</span></div>
     <div class="ct"><span class="ic">☕</span>菜单研发</div><div class="cf-menu" id="cfMenu"></div>
     <div class="ct" style="margin-top:16px;"><span class="ic">🛋️</span>店铺装扮</div><div class="shg" id="cfShop"></div>
+    <div class="ct" style="margin-top:16px;"><span class="ic">🏪</span>情侣小店</div>
+    <div class="shop-hdr"><span style="font-size:13px;color:var(--tl);">售卖纪念品与宠物周边</span><span class="shop-rev" id="shopRev">今日收益: 0🪙</span></div>
+    <div class="shop-grid" id="shopGrid"></div>
   </div>
 </div>
 
@@ -338,6 +494,19 @@ body{font-family:var(--font);background:var(--bg);min-height:100vh;color:var(--t
 
 <!-- PAGE: MORE -->
 <div class="page" id="pg-more">
+  <div class="card"><div class="ct"><span class="ic">💬</span>甜蜜聊天</div>
+    <div class="chat-box">
+      <div class="chat-msgs" id="chatMsgs">
+        <div class="chat-msg"><div class="chat-av">👩</div><div class="chat-bubble">今天也要开心哦~</div></div>
+        <div class="chat-msg self"><div class="chat-av">👨</div><div class="chat-bubble">收到！爱你 💕</div></div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="chatIn" placeholder="发送消息给Ta...">
+        <button onclick="sendChat()">发送</button>
+        <button class="voice-btn" onclick="sendVoice()">🎤</button>
+      </div>
+    </div>
+  </div>
   <div class="card"><div class="ct"><span class="ic">⚖️</span>体重记录</div><div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:10px;"><span>👩 邓紫芊: <b style="color:var(--pd);">48.5kg</b></span><span>👨 杨超: <b style="color:#4A90E2;">72.3kg</b></span></div><div class="wig"><input type="number" id="wtV" placeholder="体重kg"><select id="wtW" style="width:90px;"><option value="g">邓紫芊</option><option value="b">杨超</option></select><button class="btn btn-s" style="margin:0" onclick="addWt()">记录</button></div></div>
   <div class="card"><div class="ct"><span class="ic">💡</span>关于 SweetSpot</div><div style="font-size:13px;color:var(--tl);line-height:1.8;"><p>🎀 SweetSpot — 邓紫芊 & 杨超 的专属甜蜜空间</p><p>☕ 从一间咖啡馆起步，一起经营梦想小店</p><p>🐾 领养萌宠，陪伴成长每一个阶段</p><p>📍 共享位置，随时知道Ta在哪里</p><p>💌 分享心情，第一时间推送给对方</p><p style="margin-top:10px;text-align:center;color:var(--pd);font-weight:700;">超甜每一天 💕</p></div></div>
 </div>
@@ -345,8 +514,8 @@ body{font-family:var(--font);background:var(--bg);min-height:100vh;color:var(--t
 <div class="bnav" id="bnav">
   <div class="ni on" onclick="tab('pg-today')" data-t="pg-today"><span class="nv">📋</span><span class="nt">今日</span></div>
   <div class="ni" onclick="tab('pg-pet')" data-t="pg-pet"><span class="nv">🐾</span><span class="nt">萌宠</span></div>
+  <div class="ni" onclick="tab('pg-home')" data-t="pg-home"><span class="nv">🏠</span><span class="nt">家园</span></div>
   <div class="ni" onclick="tab('pg-cafe')" data-t="pg-cafe"><span class="nv">☕</span><span class="nt">小店</span></div>
-  <div class="ni" onclick="tab('pg-cal')" data-t="pg-cal"><span class="nv">📅</span><span class="nt">日历</span></div>
   <div class="ni" onclick="tab('pg-us')" data-t="pg-us"><span class="nv">💑</span><span class="nt">我们</span></div>
 </div>
 </div><!-- /mainApp -->
@@ -355,7 +524,16 @@ body{font-family:var(--font);background:var(--bg);min-height:100vh;color:var(--t
 
 <script>
 //===DATA===
-var D=JSON.parse(localStorage.getItem('ss2'))||{coins:680,love:1314,user:null,theme:null,startDate:'2025-07-06',todos:{},moods:{},pushMoods:{},photos:[],meals:[],periods:['2026-07-01'],pdCycle:28,gpsOn:false,gpsLat:null,gpsLng:null,gpsTs:null,partnerGPS:{on:false,lat:null,lng:null,ts:null},cfLv:1,cfExp:0,cfMenu:[{id:'m1',name:'经典美式',icon:'☕',price:15,ok:true},{id:'m2',name:'焦糖玛奇朵',icon:'🤎',price:22,ok:true},{id:'m3',name:'樱花拿铁',icon:'🌸',price:28,ok:true},{id:'m4',name:'抹茶冰沙',icon:'🍵',price:25,ok:false,cost:50},{id:'m5',name:'桃桃乌龙',icon:'🍑',price:26,ok:false,cost:80},{id:'m6',name:'桂花酿',icon:'🌼',price:30,ok:false,cost:120}],cfDecor:[{id:'d1',name:'绿植盆栽',icon:'🪴',cost:30,own:true},{id:'d2',name:'暖色壁灯',icon:'💡',cost:60,own:false},{id:'d3',name:'复古挂钟',icon:'🕰️',cost:80,own:false},{id:'d4',name:'猫咪摆件',icon:'🐱',cost:50,own:false},{id:'d5',name:'黑板菜单',icon:'📋',cost:100,own:false},{id:'d6',name:'落地花瓶',icon:'🏺',cost:150,own:false}],curPet:0,petDay:0,petStats:[{h:70,m:85,l:60},{h:70,m:85,l:60},{h:70,m:85,l:60}]};
+var D=JSON.parse(localStorage.getItem('ss2'))||{coins:680,love:1314,user:null,theme:null,startDate:'2025-07-06',todos:{},moods:{},pushMoods:{},photos:[],meals:[],periods:['2026-07-01'],pdCycle:28,gpsOn:false,gpsLat:null,gpsLng:null,gpsTs:null,partnerGPS:{on:false,lat:null,lng:null,ts:null},cfLv:1,cfExp:0,cfMenu:[{id:'m1',name:'经典美式',icon:'☕',price:15,ok:true},{id:'m2',name:'焦糖玛奇朵',icon:'🤎',price:22,ok:true},{id:'m3',name:'樱花拿铁',icon:'🌸',price:28,ok:true},{id:'m4',name:'抹茶冰沙',icon:'🍵',price:25,ok:false,cost:50},{id:'m5',name:'桃桃乌龙',icon:'🍑',price:26,ok:false,cost:80},{id:'m6',name:'桂花酿',icon:'🌼',price:30,ok:false,cost:120}],cfDecor:[{id:'d1',name:'绿植盆栽',icon:'🪴',cost:30,own:true},{id:'d2',name:'暖色壁灯',icon:'💡',cost:60,own:false},{id:'d3',name:'复古挂钟',icon:'🕰️',cost:80,own:false},{id:'d4',name:'猫咪摆件',icon:'🐱',cost:50,own:false},{id:'d5',name:'黑板菜单',icon:'📋',cost:100,own:false},{id:'d6',name:'落地花瓶',icon:'🏺',cost:150,own:false}],curPet:0,petDay:0,petStats:[{h:70,m:85,l:60},{h:70,m:85,l:60},{h:70,m:85,l:60}],
+// === 新增系统数据 ===
+checkIn:{lastDate:null,streak:0,total:0},
+intimacy:0,intimacyLv:1,titles:['甜蜜新手'],unlockedActs:['hug','chat'],chatHistory:[],
+home:{level:1,name:'温馨小屋',furniture:['f1'],maxFurniture:5},
+furniture:[{id:'f1',name:'舒适沙发',icon:'🛋️',cost:0,own:true,home:true},{id:'f2',name:'双人床',icon:'🛏️',cost:100,own:false,home:false},{id:'f3',name:'温馨台灯',icon:'🪔',cost:80,own:false,home:false},{id:'f4',name:'爱心地毯',icon:'🧶',cost:60,own:false,home:false},{id:'f5',name:'照片相框',icon:'🖼️',cost:120,own:false,home:false},{id:'f6',name:'宠物窝',icon:'🏠',cost:150,own:false,home:false},{id:'f7',name:'小花园',icon:'🌻',cost:200,own:false,home:false},{id:'f8',name:'秋千椅',icon:'🪑',cost:180,own:false,home:false}],
+homeLevels:[{name:'温馨小屋',icon:'🏚️',cost:0,furnLimit:5},{name:'浪漫公寓',icon:'🏠',cost:500,furnLimit:8},{name:'甜蜜庄园',icon:'🏡',cost:1500,furnLimit:12},{name:'爱情小镇',icon:'🏘️',cost:3000,furnLimit:20}],
+shopItems:[{id:'s1',name:'情侣钥匙扣',icon:'🔑',price:50,stock:10,sold:0},{id:'s2',name:'恋恋玩偶',icon:'🧸',price:120,stock:5,sold:0},{id:'s3',name:'球球挂件',icon:'🔔',price:80,stock:8,sold:0},{id:'s4',name:'定制马克杯',icon:'☕',price:150,stock:6,sold:0},{id:'s5',name:'宠物零食包',icon:'🍖',price:40,stock:15,sold:0},{id:'s6',name:'爱情明信片',icon:'💌',price:30,stock:20,sold:0}],
+shopRevenue:0,timeline:[{date:'2025-07-06',type:'milestone',title:'💑 我们在一起',desc:'这是故事的开始',img:'💕'},{date:'2025-08-20',type:'memory',title:'🌸 第一次约会',desc:'樱花树下的约定',img:'🌸'}]
+};
 function sv(){localStorage.setItem('ss2',JSON.stringify(D));}
 
 //===PETS===
@@ -414,7 +592,7 @@ function hideAll(){var els=document.querySelectorAll('.scr');for(var i=0;i<els.l
 function goWelcome(){hideAll();document.getElementById('scr-welcome').classList.add('on');}
 function goLogin(g){alert('跳转中: '+g);var wel=document.getElementById('scr-welcome'),lf=document.getElementById('scr-loginF'),lm=document.getElementById('scr-loginM');wel.classList.remove('on');wel.style.display='none';lf.classList.remove('on');lf.style.display='none';lm.classList.remove('on');lm.style.display='none';if(g==='f'){document.body.className='tp';lf.style.display='flex';setTimeout(function(){lf.classList.add('on');},10);}else{document.body.className='tb';lm.style.display='flex';setTimeout(function(){lm.classList.add('on');},10);}}
 function doLogin(g){D.user=g;D.theme=g==='f'?'pink':'blue';sv();enterApp();}
-function enterApp(){hideAll();document.body.className=D.theme==='blue'?'tb':'tp';document.getElementById('mainApp').style.display='block';document.getElementById('bnav').style.display='flex';document.getElementById('uav').textContent=D.user==='f'?'👩':'👨';updCoins();renderTodos();renderMoodGrid();renderCal();renderPet();renderCafe();renderPh();renderML();renderPush();updPd();if(D.gpsOn)updGPS();}
+function enterApp(){hideAll();document.body.className=D.theme==='blue'?'tb':'tp';document.getElementById('mainApp').style.display='block';document.getElementById('bnav').style.display='flex';document.getElementById('uav').textContent=D.user==='f'?'👩':'👨';updCoins();renderTodos();renderMoodGrid();renderCal();renderPet();renderCafe();renderPh();renderML();renderPush();updPd();if(D.gpsOn)updGPS();renderCheckIn();renderIntm();renderHome();renderShop();renderChat();}
 
 //===COINS===
 function updCoins(){document.getElementById('coinD').textContent=D.coins;document.getElementById('loveD').textContent=D.love;var c=document.getElementById('cfC');if(c)c.textContent=D.coins;}
@@ -454,6 +632,36 @@ function buyDec(id){var d;for(var i=0;i<D.cfDecor.length;i++)if(D.cfDecor[i].id=
 function serveCust(el){var earn=Math.floor(Math.random()*20)+5;D.cfExp+=earn;D.coins+=earn;chkCfUp();sv();updCoins();addC(earn,el);var em=['🚶','🧍‍♀️','👩','👨','🧑','👧','🧒'];el.textContent=em[Math.floor(Math.random()*em.length)];}
 function spawnCust(){setInterval(function(){if(!D.user)return;var sc=document.getElementById('cfScene');if(!sc||!sc.offsetParent)return;var c=document.createElement('div');c.className='cf-cust';c.style.left=Math.floor(Math.random()*80+10)+'px';c.style.bottom='12px';var em=['🚶','🧍‍♀️','👩','👨','🧑‍🦰'];c.textContent=em[Math.floor(Math.random()*em.length)];c.onclick=function(){serveCust(c);if(c.parentNode)sc.removeChild(c);};sc.appendChild(c);setTimeout(function(){if(c.parentNode)sc.removeChild(c);},8000);},5000);}
 function chkCfUp(){var nx=cfLvls[D.cfLv];if(nx&&D.cfExp>=stageThresh[D.cfLv]*3){D.cfLv++;sv();showModal('🎉 升级！','<div style="text-align:center;padding:20px;"><div style="font-size:60px;">🎊</div><p style="font-size:18px;color:var(--pd);margin-top:10px;font-weight:700;">小店升级到 Lv.'+D.cfLv+'</p><p style="font-size:14px;color:var(--tl);margin-top:6px;">'+cfLvls[D.cfLv-1].n+'</p></div>');renderCafe();}}
+
+
+//===COUPLE & CHECKIN SYSTEM===
+var intmLevels=[{lv:1,name:'初识',title:'甜蜜新手',need:0},{lv:2,name:'暧昧',title:'心动信号',need:100},{lv:3,name:'表白',title:'专属恋人',need:300},{lv:4,name:'热恋',title:'热恋情侣',need:600},{lv:5,name:'默契',title:'灵魂伴侣',need:1000},{lv:6,name:'守护',title:'终身挚爱',need:1500},{lv:7,name:'永恒',title:'神仙眷侣',need:2500}];
+function getIntmInfo(){for(var i=intmLevels.length-1;i>=0;i--)if(D.intimacy>=intmLevels[i].need)return intmLevels[i];return intmLevels[0];}
+function getNextIntm(){var cur=getIntmInfo();for(var i=0;i<intmLevels.length;i++)if(intmLevels[i].lv===cur.lv+1)return intmLevels[i];return null;}
+function renderCheckIn(){var td=new Date().toISOString().split('T')[0],btn=document.getElementById('ciBtn'),streak=document.getElementById('ciStreak');if(!btn)return;if(D.checkIn&&D.checkIn.lastDate===td){btn.classList.add('done');btn.textContent='✅ 今日已签到';btn.disabled=true;}else{btn.classList.remove('done');btn.textContent='✨ 点击签到领取奖励';btn.disabled=false;}if(streak)streak.textContent='🔥 连续 '+(D.checkIn?D.checkIn.streak:0)+' 天';}
+function doCheckIn(){var td=new Date().toISOString().split('T')[0];if(D.checkIn&&D.checkIn.lastDate===td){toast('今天已经签到过啦~');return;}if(!D.checkIn)D.checkIn={lastDate:null,streak:0,total:0};var last=D.checkIn.lastDate?new Date(D.checkIn.lastDate):null;var yesterday=new Date();yesterday.setDate(yesterday.getDate()-1);var isContinuous=last&&last.toISOString().split('T')[0]===yesterday.toISOString().split('T')[0];if(isContinuous){D.checkIn.streak++;}else{D.checkIn.streak=1;}D.checkIn.lastDate=td;D.checkIn.total++;var coinReward=10+Math.min(D.checkIn.streak*2,50);var loveReward=5+Math.min(D.checkIn.streak,20);var intmReward=3+Math.min(Math.floor(D.checkIn.streak/5),10);D.coins+=coinReward;D.love+=loveReward;D.intimacy+=intmReward;checkIntmUp();sv();updCoins();renderCheckIn();addIntm(intmReward);toast('🎉 签到成功！连续'+D.checkIn.streak+'天 · +'+coinReward+'🪙 +'+loveReward+'💎');}
+function renderIntm(){var info=getIntmInfo(),next=getNextIntm();document.getElementById('intmLv').textContent='💕 Lv.'+info.lv+' '+info.name;document.getElementById('intmTitle').textContent='称号: '+info.title;var pct=next?Math.min(100,Math.max(0,(D.intimacy-info.need)/(next.need-info.need)*100)):100;document.getElementById('intmPf').style.width=pct+'%';document.getElementById('intmCur').textContent=D.intimacy+(next?' / '+next.need:' MAX');document.getElementById('intmNext').textContent=next?'下一级: '+next.name:'已满级';var tw=document.getElementById('titlesWrap');if(tw){var th='';for(var i=0;i<(D.titles||[]).length;i++)th+='<span class="title-tag">'+D.titles[i]+'</span>';tw.innerHTML=th;}}
+function checkIntmUp(){var info=getIntmInfo();if(D.intimacyLv!==info.lv){D.intimacyLv=info.lv;if(!D.titles)D.titles=[];if(D.titles.indexOf(info.title)===-1){D.titles.push(info.title);showModal('🎉 亲密度升级！','<div style="text-align:center;padding:20px;"><div style="font-size:60px;">💕</div><p style="font-size:18px;color:var(--pd);margin-top:10px;font-weight:700;">升级到 Lv.'+info.lv+' '+info.name+'</p><p style="font-size:14px;color:var(--tl);margin-top:6px;">获得称号: '+info.title+'</p></div>');}}}
+function addIntm(n){D.intimacy=(D.intimacy||0)+n;checkIntmUp();sv();renderIntm();}
+function doCoupleAct(act){var acts={hug:{e:'🤗',n:'抱抱',c:5,l:3,i:2},kiss:{e:'💋',n:'亲亲',c:8,l:5,i:3},chat:{e:'💬',n:'聊天',c:3,l:2,i:1},gift:{e:'🎁',n:'送礼',c:15,l:10,i:5},date:{e:'🌹',n:'约会',c:20,l:15,i:8},cook:{e:'🍳',n:'做饭',c:10,l:8,i:4},movie:{e:'🎬',n:'看电影',c:12,l:10,i:5},travel:{e:'✈️',n:'旅行',c:50,l:30,i:20}};var a=acts[act];if(!a)return;if(D.coins<a.c){toast('🪙 金币不够，需要'+a.c+'🪙');return;}if(D.love<a.l){toast('💎 爱心不够，需要'+a.l+'💎');return;}D.coins-=a.c;D.love-=a.l;D.intimacy+=a.i;addC(0);addIntm(a.i);sv();showModal(a.e+' '+a.n,'<div style="text-align:center;padding:20px;"><div style="font-size:50px;">'+a.e+'</div><p style="font-size:16px;color:var(--pd);margin-top:10px;font-weight:700;">'+a.n+'成功！</p><p style="font-size:13px;color:var(--tl);margin-top:6px;">亲密度 +'+a.i+' · 剩余 🪙'+D.coins+' 💎'+D.love+'</p></div>');}
+
+//===HOME SYSTEM===
+function renderHome(){var hl=D.homeLevels[Math.min(D.home.level-1,D.homeLevels.length-1)],next=D.homeLevels[D.home.level];document.getElementById('homeName').textContent=hl.icon+' '+D.home.name;document.getElementById('homeBld').textContent=hl.icon;var desc='Lv.'+D.home.level+' · 家具 '+(D.home.furniture?D.home.furniture.length:0)+'/'+hl.furnLimit;if(next)desc+=' · 升级需 '+next.cost+'🪙';else desc+=' · 已满级';document.getElementById('homeDesc').textContent=desc;var upgBtn=document.getElementById('homeUpg');if(next){upgBtn.textContent='🔨 升级家园 ('+next.cost+'🪙)';upgBtn.disabled=D.coins<next.cost;}else{upgBtn.textContent='🏆 已达最高级';upgBtn.disabled=true;}var hpg=document.getElementById('homePet');if(hpg){var pp=pets[D.curPet];hpg.textContent=pp?pp.emoji:'🐾';}renderFurniture();renderPwall();renderTimeline();}
+function tapHome(){var hl=D.homeLevels[Math.min(D.home.level-1,D.homeLevels.length-1)];showModal(hl.icon+' '+D.home.name,'<div style="text-align:center;padding:20px;"><div style="font-size:60px;">'+hl.icon+'</div><p style="font-size:16px;color:var(--pd);margin-top:10px;font-weight:700;">'+D.home.name+'</p><p style="font-size:13px;color:var(--tl);margin-top:6px;">Lv.'+D.home.level+' · 家具 '+(D.home.furniture?D.home.furniture.length:0)+'/'+hl.furnLimit+'</p><p style="font-size:12px;color:var(--tl);margin-top:8px;">这是我们的小家，一起成长吧~</p></div>');}
+function upgradeHome(){var next=D.homeLevels[D.home.level];if(!next)return;if(D.coins<next.cost){toast('🪙 金币不足');return;}D.coins-=next.cost;D.home.level++;D.home.name=next.name;D.home.maxFurniture=next.furnLimit;sv();updCoins();renderHome();showModal('🎉 家园升级！','<div style="text-align:center;padding:20px;"><div style="font-size:60px;">'+next.icon+'</div><p style="font-size:18px;color:var(--pd);margin-top:10px;font-weight:700;">升级到 '+next.name+'</p><p style="font-size:14px;color:var(--tl);margin-top:6px;">家具上限: '+next.furnLimit+'</p></div>');}
+function renderFurniture(){var h='';for(var i=0;i<D.furniture.length;i++){var f=D.furniture[i],isHome=D.home.furniture&&D.home.furniture.indexOf(f.id)!==-1;h+='<div class="furn-item '+(isHome?'own':'')+'" onclick="toggleFurn(\''+f.id+'\')"><span class="fi-e">'+f.icon+'</span><div class="fi-n">'+f.name+'</div><div class="fi-c">'+(f.own?(isHome?'已摆放':'点击摆放'):f.cost+'🪙')+'</div></div>';}document.getElementById('furnGrid').innerHTML=h;}
+function toggleFurn(id){var f;for(var i=0;i<D.furniture.length;i++)if(D.furniture[i].id===id){f=D.furniture[i];break;}if(!f)return;if(!f.own){if(D.coins<f.cost){toast('🪙 金币不足');return;}D.coins-=f.cost;f.own=true;if(!D.home.furniture)D.home.furniture=[];D.home.furniture.push(id);sv();updCoins();renderFurniture();toast('🛋️ 购买并摆放: '+f.name);return;}if(!D.home.furniture)D.home.furniture=[];var idx=D.home.furniture.indexOf(id);if(idx!==-1){D.home.furniture.splice(idx,1);}else{if(D.home.furniture.length>=D.home.maxFurniture){toast('家具已满，请先收起一些');return;}D.home.furniture.push(id);}sv();renderFurniture();}
+function renderPwall(){var g=document.getElementById('pwall'),h='';for(var i=0;i<(D.photos||[]).length;i++)h+='<div class="pw-item"><img src="'+D.photos[i]+'"><div class="pw-d">回忆</div></div>';var demos=[{e:'💑',d:'2025-07-06'},{e:'🌸',d:'2025-08-20'},{e:'☕',d:'2026-01-01'},{e:'🎂',d:'2026-02-14'}];for(var i=0;i<demos.length;i++)h+='<div class="pw-item" style="font-size:28px;">'+demos[i].e+'<div class="pw-d">'+demos[i].d+'</div></div>';h+='<div class="pw-item" style="color:var(--p);font-size:28px;cursor:pointer;" onclick="document.getElementById(\'phI\').click()">+<div class="pw-d">上传</div></div>';g.innerHTML=h;}
+function renderTimeline(){var tl=document.getElementById('timeline');if(!tl)return;var h='';for(var i=0;i<(D.timeline||[]).length;i++){var t=D.timeline[i];h+='<div class="tl-item"><div class="tl-date">'+t.date+'</div><div class="tl-title">'+t.title+'</div><div class="tl-desc">'+t.desc+'</div>'+(t.img?'<div class="tl-img">'+t.img+'</div>':'')+'</div>';}tl.innerHTML=h;}
+
+//===SHOP SYSTEM===
+function renderShop(){var g=document.getElementById('shopGrid');if(!g)return;var h='';for(var i=0;i<(D.shopItems||[]).length;i++){var s=D.shopItems[i];h+='<div class="shop-item"><span class="si-e">'+s.icon+'</span><div class="si-n">'+s.name+'</div><div class="si-p">售价 '+s.price+'🪙</div><div class="si-st">库存 '+s.stock+' · 已售 '+s.sold+'</div><button class="sell-btn" '+(s.stock<=0?'disabled':'')+' onclick="sellItem(\''+s.id+'\')">'+(s.stock>0?'🛒 售卖':'已售罄')+'</button></div>';}g.innerHTML=h;document.getElementById('shopRev').textContent='今日收益: '+(D.shopRevenue||0)+'🪙';}
+function sellItem(id){var s;for(var i=0;i<(D.shopItems||[]).length;i++)if(D.shopItems[i].id===id){s=D.shopItems[i];break;}if(!s||s.stock<=0)return;var earn=s.price;s.stock--;s.sold++;D.coins+=earn;D.shopRevenue=(D.shopRevenue||0)+earn;sv();updCoins();renderShop();addC(earn);toast('🛒 售出 '+s.name+' · +'+earn+'🪙');}
+
+//===CHAT SYSTEM===
+function sendChat(){var inp=document.getElementById('chatIn'),v=inp.value.trim();if(!v)return;if(!D.chatHistory)D.chatHistory=[];D.chatHistory.push({who:D.user==='f'?'邓紫芊':'杨超',self:true,text:v,time:Date.now()});setTimeout(function(){var replies=['我也想你~ 💕','今天过得怎么样？','好呀，我支持你！','嘿嘿，你最可爱','等会见！','爱你哟 ❤️','收到！','好主意！'];var r=replies[Math.floor(Math.random()*replies.length)];D.chatHistory.push({who:D.user==='f'?'杨超':'邓紫芊',self:false,text:r,time:Date.now()});sv();renderChat();},800);inp.value='';sv();renderChat();addIntm(1);}
+function sendVoice(){if(!D.chatHistory)D.chatHistory=[];D.chatHistory.push({who:D.user==='f'?'邓紫芊':'杨超',self:true,text:'🎤 语音消息 (3")',time:Date.now(),voice:true});setTimeout(function(){D.chatHistory.push({who:D.user==='f'?'杨超':'邓紫芊',self:false,text:'🎤 语音回复 (5")',time:Date.now(),voice:true});sv();renderChat();},1200);sv();renderChat();addIntm(2);toast('💌 语音已发送');}
+function renderChat(){var g=document.getElementById('chatMsgs');if(!g||!D.chatHistory)return;var h='';for(var i=0;i<D.chatHistory.length;i++){var c=D.chatHistory[i];h+='<div class="chat-msg '+(c.self?'self':'')+'"><div class="chat-av">'+(c.who==='邓紫芊'?'👩':'👨')+'</div><div class="chat-bubble">'+c.text+'</div></div>';}g.innerHTML=h;g.scrollTop=g.scrollHeight;}
 
 //===CALENDAR===
 var cY=new Date().getFullYear(),cM=new Date().getMonth();
