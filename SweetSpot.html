@@ -328,6 +328,57 @@ body{font-family:var(--font);background:var(--bg);min-height:100vh;color:var(--t
 .chat-input button{padding:10px 14px;background:var(--p);color:#fff;border:none;border-radius:var(--rs);font-family:var(--font);font-size:13px;cursor:pointer;}
 .voice-btn{padding:10px 14px;background:linear-gradient(135deg,#FF6B6B,#E74C3C);color:#fff;border:none;border-radius:var(--rs);font-family:var(--font);font-size:13px;cursor:pointer;}
 
+
+/* ===== 宠物SVG形象 ===== */
+.pet-char-svg{width:90px;height:90px;cursor:pointer;transition:transform .3s;filter:drop-shadow(2px 2px 4px rgba(0,0,0,.2));}
+.pet-char-svg:active{transform:scale(1.15) rotate(-5deg);}
+.pet-opt .po-e{font-size:0 !important;width:60px;height:60px;border-radius:50%;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;}
+.pet-opt .po-e svg{width:50px;height:50px;}
+
+/* ===== 步数系统 ===== */
+.step-card{background:linear-gradient(135deg,#7EC8E3,#3B82F6);border-radius:var(--r);padding:18px;margin:14px 0;color:#fff;box-shadow:var(--sh);position:relative;overflow:hidden;}
+.step-card::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:rgba(255,255,255,.1);border-radius:50%;}
+.step-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.step-top h3{font-size:18px;letter-spacing:1px;}
+.step-ring{position:relative;width:100px;height:100px;margin:0 auto 12px;}
+.step-ring svg{transform:rotate(-90deg);}
+.step-ring .ring-bg{fill:none;stroke:rgba(255,255,255,.2);stroke-width:8;}
+.step-ring .ring-fg{fill:none;stroke:#FFD700;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset .8s ease;}
+.step-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;}
+.step-center .sv{font-size:28px;font-weight:700;line-height:1;}
+.step-center .sl{font-size:10px;opacity:.8;margin-top:2px;}
+.step-info{display:flex;justify-content:space-around;text-align:center;font-size:12px;}
+.step-info .si-v{font-size:18px;font-weight:700;}
+.step-info .si-l{font-size:10px;opacity:.8;margin-top:2px;}
+.step-add{width:100%;padding:12px;margin-top:12px;background:rgba(255,255,255,.2);border:2px dashed rgba(255,255,255,.4);border-radius:var(--rs);color:#fff;font-family:var(--font);font-size:14px;cursor:pointer;text-align:center;}
+.step-add:active{background:rgba(255,255,255,.3);}
+.step-history{margin-top:10px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap;}
+.step-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);}
+.step-dot.on{background:#FFD700;}
+.step-dot.today{background:#FF6B6B;box-shadow:0 0 6px rgba(255,107,107,.5);}
+
+/* ===== 增强宠物选择卡片 ===== */
+.pet-opt{background:var(--cb);border:3px solid transparent;border-radius:var(--rs);padding:14px 8px;text-align:center;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;}
+.pet-opt::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:var(--ac);opacity:0;transition:opacity .3s;}
+.pet-opt.sel::after{opacity:1;}
+.pet-opt .po-e{display:flex;justify-content:center;margin-bottom:6px;}
+.pet-opt .po-n{font-size:14px;font-weight:700;color:var(--pd);}
+.pet-opt .po-d{font-size:10px;color:var(--tl);margin-top:2px;line-height:1.3;}
+.pet-opt .po-personality{font-size:10px;color:var(--p);margin-top:4px;background:var(--pl);padding:2px 8px;border-radius:10px;display:inline-block;}
+
+/* ===== 增强宠物场景 ===== */
+.pet-scene{background:linear-gradient(180deg,#87CEEB 0%,#B0E0FF 30%,#E0F7FA 50%,#90EE90 50%,#7CFC00 100%);border-radius:var(--r);height:240px;position:relative;overflow:hidden;margin-bottom:16px;border:3px solid var(--ac);}
+.pet-scene .ground{position:absolute;bottom:0;left:0;right:0;height:45%;background:linear-gradient(180deg,#90EE90 0%,#5CB85C 100%);}
+.pet-scene .flowers{position:absolute;bottom:5px;font-size:16px;opacity:.7;}
+
+/* ===== 增强宠物阶段展示 ===== */
+.pet-stage-card{background:linear-gradient(135deg,#FFF8DC,#FFE4B5);border-radius:var(--r);padding:16px;margin-bottom:14px;border:2px solid #FFD700;position:relative;overflow:hidden;}
+.pet-stage-card::before{content:'';position:absolute;top:-10px;right:-10px;width:60px;height:60px;background:rgba(255,215,0,.15);border-radius:50%;}
+.pet-stage-card .ps-progress{display:flex;gap:3px;margin-top:10px;}
+.pet-stage-card .ps-dot{width:10px;height:10px;border-radius:50%;background:#FFE4B5;border:2px solid #FFD700;}
+.pet-stage-card .ps-dot.done{background:#FFD700;}
+.pet-stage-card .ps-dot.cur{background:#FF6B6B;box-shadow:0 0 6px rgba(255,107,107,.5);}
+
 </style>
 </head>
 <body class="tp">
@@ -384,6 +435,21 @@ body{font-family:var(--font);background:var(--bg);min-height:100vh;color:var(--t
     <div class="ci-reward" id="ciReward"><span>🪙 +10</span><span>💎 +5</span><span>亲密度 +3</span></div>
   </div>
   
+    <!-- 步数系统 -->
+  <div class="step-card">
+    <div class="step-top"><h3>👟 每日步数</h3></div>
+    <div class="step-ring">
+      <svg width="100" height="100" viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="42"/><circle class="ring-fg" id="stepRing" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="264"/></svg>
+      <div class="step-center"><div class="sv" id="stepCount">0</div><div class="sl">步</div></div>
+    </div>
+    <div class="step-info">
+      <div><div class="si-v" id="stepGoal">8000</div><div class="si-l">目标</div></div>
+      <div><div class="si-v" id="stepCal">0</div><div class="si-l">千卡</div></div>
+      <div><div class="si-v" id="stepDist">0</div><div class="si-l">公里</div></div>
+    </div>
+    <div class="step-add" onclick="addSteps()">🚶 点击记录步数</div>
+    <div class="step-history" id="stepHistory"></div>
+  </div>
   <!-- 亲密度系统 -->
   <div class="intm-bar">
     <div class="intm-top"><span class="intm-lv" id="intmLv">💕 Lv.1 初识</span><span class="intm-title" id="intmTitle">获得称号: 甜蜜新手</span></div>
@@ -537,8 +603,15 @@ shopRevenue:0,timeline:[{date:'2025-07-06',type:'milestone',title:'💑 我们�
 function sv(){localStorage.setItem('ss2',JSON.stringify(D));}
 
 //===PETS===
+
+var petSVGs={
+lianlian:'<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="58" rx="30" ry="28" fill="#FFFFFF" stroke="#E8E0D8" stroke-width="1.5"/><ellipse cx="50" cy="75" rx="22" ry="15" fill="#FFFFFF" stroke="#E8E0D8" stroke-width="1"/><circle cx="50" cy="32" r="22" fill="#FFFFFF" stroke="#E8E0D8" stroke-width="1.5"/><ellipse cx="36" cy="28" rx="8" ry="9" fill="#FFB6C1" opacity="0.4"/><ellipse cx="64" cy="28" rx="8" ry="9" fill="#FFB6C1" opacity="0.4"/><circle cx="42" cy="30" r="4" fill="#333"/><circle cx="58" cy="30" r="4" fill="#333"/><circle cx="43.5" cy="28.5" r="1.5" fill="#FFF"/><circle cx="59.5" cy="28.5" r="1.5" fill="#FFF"/><ellipse cx="50" cy="37" rx="3" ry="2" fill="#FFB6C1"/><path d="M46 39 Q50 42 54 39" stroke="#333" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M28 25 Q24 20 26 15" stroke="#E8E0D8" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M72 25 Q76 20 74 15" stroke="#E8E0D8" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="22" cy="60" rx="10" ry="18" fill="#FFFFFF" stroke="#E8E0D8" stroke-width="1" transform="rotate(-15 22 60)"/><ellipse cx="78" cy="60" rx="10" ry="18" fill="#FFFFFF" stroke="#E8E0D8" stroke-width="1" transform="rotate(15 78 60)"/><path d="M45 88 Q50 92 55 88" stroke="#E8E0D8" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="35" cy="70" r="5" fill="#FFB6C1" opacity="0.3"/><circle cx="65" cy="70" r="5" fill="#FFB6C1" opacity="0.3"/></svg>',
+tangtang:'<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="58" rx="30" ry="28" fill="#C68642" stroke="#A0522D" stroke-width="1.5"/><ellipse cx="50" cy="75" rx="22" ry="15" fill="#C68642" stroke="#A0522D" stroke-width="1"/><circle cx="50" cy="32" r="22" fill="#D2A06C" stroke="#A0522D" stroke-width="1.5"/><ellipse cx="36" cy="28" rx="8" ry="9" fill="#FFE4C4" opacity="0.5"/><ellipse cx="64" cy="28" rx="8" ry="9" fill="#FFE4C4" opacity="0.5"/><circle cx="42" cy="30" r="4.5" fill="#333"/><circle cx="58" cy="30" r="4.5" fill="#333"/><circle cx="43.5" cy="28.5" r="1.8" fill="#FFF"/><circle cx="59.5" cy="28.5" r="1.8" fill="#FFF"/><ellipse cx="50" cy="37" rx="3.5" ry="2.5" fill="#A0522D"/><ellipse cx="50" cy="36" rx="2" ry="1.2" fill="#333"/><path d="M45 40 Q50 44 55 40" stroke="#333" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M30 18 Q32 8 38 12" stroke="#A0522D" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M70 18 Q68 8 62 12" stroke="#A0522D" stroke-width="2.5" fill="none" stroke-linecap="round"/><ellipse cx="22" cy="60" rx="10" ry="18" fill="#C68642" stroke="#A0522D" stroke-width="1" transform="rotate(-15 22 60)"/><ellipse cx="78" cy="60" rx="10" ry="18" fill="#C68642" stroke="#A0522D" stroke-width="1" transform="rotate(15 78 60)"/><circle cx="50" cy="20" r="5" fill="#FFD700" opacity="0.6"/><path d="M48 16 L50 12 L52 16" fill="#FFD700" opacity="0.6"/></svg>',
+qiuqiu:'<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="60" rx="26" ry="24" fill="#D3D3D3" stroke="#A9A9A9" stroke-width="1.5"/><circle cx="50" cy="30" r="20" fill="#E8E8E8" stroke="#A9A9A9" stroke-width="1.5"/><path d="M30 22 Q28 8 38 16" stroke="#A9A9A9" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M70 22 Q72 8 62 16" stroke="#A9A9A9" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M32 26 Q30 18 35 22" stroke="#A9A9A9" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M68 26 Q70 18 65 22" stroke="#A9A9A9" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="40" cy="28" rx="7" ry="8" fill="#B0C4DE" opacity="0.4"/><ellipse cx="60" cy="28" rx="7" ry="8" fill="#B0C4DE" opacity="0.4"/><path d="M43 30 L43 36 L39 33 Z" fill="#4DB870"/><path d="M57 30 L57 36 L61 33 Z" fill="#4DB870"/><ellipse cx="50" cy="35" rx="2" ry="1.5" fill="#FFB6C1"/><path d="M46 38 Q50 40 54 38" stroke="#A9A9A9" stroke-width="1" fill="none" stroke-linecap="round"/><path d="M42 82 Q50 88 58 82" stroke="#A9A9A9" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="26" cy="50" rx="12" ry="6" fill="#E8E8E8" stroke="#A9A9A9" stroke-width="1" transform="rotate(-20 26 50)"/><circle cx="74" cy="50" rx="12" ry="6" fill="#E8E8E8" stroke="#A9A9A9" stroke-width="1" transform="rotate(20 74 50)"/><circle cx="50" cy="50" r="2" fill="#A9A9A9" opacity="0.3"/><circle cx="44" cy="48" r="1.5" fill="#A9A9A9" opacity="0.3"/><circle cx="56" cy="48" r="1.5" fill="#A9A9A9" opacity="0.3"/></svg>'
+};
+
 var pets=[
-{id:'lianlian',name:'恋恋',emoji:'🐶',color:'#FFB6C1',desc:'治愈系 · 温柔黏人 · 纯爱陪伴',acts:['摇尾巴','蹭手','求抱抱','趴肩','眨眼','转圈','贴贴','歪头','睡觉','送心心'],stages:[
+{id:'lianlian',name:'恋恋',emoji:'🐶',svg:'lianlian',color:'#FFB6C1',personality:'温柔、黏人、治愈、陪伴感强',style:'纯爱陪伴感路线',desc:'治愈系 · 温柔黏人 · 纯爱陪伴',acts:['摇尾巴','蹭手','求抱抱','趴肩','眨眼','转圈','贴贴','歪头','睡觉','送心心'],stages:[
 {name:'初生依赖',desc:'缩成一团、轻轻蹭手、抬头看你',dlg:'"我有点害怕，你能抱抱我吗？"'},
 {name:'适应环境',desc:'慢慢靠近、摇尾巴、跟随脚步',dlg:'"你在身边，我就安心啦。"'},
 {name:'开始信任',desc:'打滚撒娇、轻碰手心、求摸头',dlg:'"我开始喜欢和你待在一起了！"'},
@@ -549,7 +622,7 @@ var pets=[
 {name:'稳定陪伴',desc:'陪你发呆、安静趴身边、轻轻蹭肩',dlg:'"就这样陪着你，也很幸福。"'},
 {name:'亲密依赖',desc:'扑抱抱、亲亲脸颊、睡前贴贴',dlg:'"我只想黏着你，一直不分开。"'},
 {name:'永恒陪伴',desc:'送心心、披风出场、守护姿态',dlg:'"以后每一天，我都会陪着你。"'}]},
-{id:'tangtang',name:'糖糖',emoji:'🐕',color:'#D2B48C',desc:'甜宠系 · 甜美活泼 · 高频互动',acts:['飞扑','舔手','摇尾巴','叼玩具','蹦跳','举爪','求亲亲','卖萌眨眼','趴睡','开心转圈'],stages:[
+{id:'tangtang',name:'糖糖',emoji:'🐕',svg:'tangtang',color:'#D2B48C',personality:'甜美、活泼、撒娇、热情',style:'高频互动与甜宠反馈路线',desc:'甜宠系 · 甜美活泼 · 高频互动',acts:['飞扑','舔手','摇尾巴','叼玩具','蹦跳','举爪','求亲亲','卖萌眨眼','趴睡','开心转圈'],stages:[
 {name:'初见萌化',desc:'趴睡卖萌、抬眼偷看、轻轻挪步',dlg:'"我会不会也被你喜欢呀？"'},
 {name:'快速适应',desc:'摇尾靠近、蹭蹭脚边、舔舔手指',dlg:'"谢谢你照顾我，我好开心呀！"'},
 {name:'熟悉互动',desc:'叼球过来、原地蹦跳、撒娇求玩',dlg:'"快来陪我玩，我最期待你啦！"'},
@@ -560,7 +633,7 @@ var pets=[
 {name:'默契稳定',desc:'并肩坐着、拍照微笑、等你回家',dlg:'"最幸福的事，就是每天见到你。"'},
 {name:'高糖陪伴',desc:'求亲亲、送礼物、围着你打转',dlg:'"你对我最好，我也最最喜欢你！"'},
 {name:'王冠时刻',desc:'戴王冠亮相、守护站姿、比心动作',dlg:'"我会一直做你的专属小甜宠。"'}]},
-{id:'qiuqiu',name:'球球',emoji:'🐱',color:'#B0C4DE',desc:'傲娇系 · 安静慢热 · 细腻治愈',acts:['甩尾巴','踩奶','蹭腿','舔爪','蜷缩睡觉','盯着你看','轻轻喵叫','扑蝴蝶','窝怀里','优雅回头'],stages:[
+{id:'qiuqiu',name:'球球',emoji:'🐱',svg:'qiuqiu',color:'#B0C4DE',personality:'傲娇、安静、慢热、细腻',style:'慢慢靠近、陪伴治愈路线',desc:'傲娇系 · 安静慢热 · 细腻治愈',acts:['甩尾巴','踩奶','蹭腿','舔爪','蜷缩睡觉','盯着你看','轻轻喵叫','扑蝴蝶','窝怀里','优雅回头'],stages:[
 {name:'慢热观察',desc:'缩成猫团、警觉张望、偷偷看你',dlg:'"先让我观察一下你吧……"'},
 {name:'逐渐放松',desc:'轻轻喵叫、靠近闻闻、安静趴下',dlg:'"你看起来，好像还不错。"'},
 {name:'愿意接触',desc:'蹭腿示好、抬爪碰你、眨眼回应',dlg:'"我只是……稍微有点想亲近你。"'},
@@ -592,7 +665,7 @@ function hideAll(){var els=document.querySelectorAll('.scr');for(var i=0;i<els.l
 function goWelcome(){hideAll();document.getElementById('scr-welcome').classList.add('on');}
 function goLogin(g){alert('跳转中: '+g);var wel=document.getElementById('scr-welcome'),lf=document.getElementById('scr-loginF'),lm=document.getElementById('scr-loginM');wel.classList.remove('on');wel.style.display='none';lf.classList.remove('on');lf.style.display='none';lm.classList.remove('on');lm.style.display='none';if(g==='f'){document.body.className='tp';lf.style.display='flex';setTimeout(function(){lf.classList.add('on');},10);}else{document.body.className='tb';lm.style.display='flex';setTimeout(function(){lm.classList.add('on');},10);}}
 function doLogin(g){D.user=g;D.theme=g==='f'?'pink':'blue';sv();enterApp();}
-function enterApp(){hideAll();document.body.className=D.theme==='blue'?'tb':'tp';document.getElementById('mainApp').style.display='block';document.getElementById('bnav').style.display='flex';document.getElementById('uav').textContent=D.user==='f'?'👩':'👨';updCoins();renderTodos();renderMoodGrid();renderCal();renderPet();renderCafe();renderPh();renderML();renderPush();updPd();if(D.gpsOn)updGPS();renderCheckIn();renderIntm();renderHome();renderShop();renderChat();}
+function enterApp(){hideAll();document.body.className=D.theme==='blue'?'tb':'tp';document.getElementById('mainApp').style.display='block';document.getElementById('bnav').style.display='flex';document.getElementById('uav').textContent=D.user==='f'?'👩':'👨';updCoins();renderTodos();renderMoodGrid();renderCal();renderPet();renderCafe();renderPh();renderML();renderPush();updPd();if(D.gpsOn)updGPS();renderCheckIn();renderIntm();renderHome();renderShop();renderChat();renderSteps();startStepTimer();}
 
 //===COINS===
 function updCoins(){document.getElementById('coinD').textContent=D.coins;document.getElementById('loveD').textContent=D.love;var c=document.getElementById('cfC');if(c)c.textContent=D.coins;}
@@ -616,11 +689,11 @@ function saveMood(){if(!selMood){toast('请先选择心情~');return;}var n=docu
 function renderPush(){var c=document.getElementById('mpc'),ks=Object.keys(D.pushMoods).sort(function(a,b){return b.localeCompare(a);});if(!ks.length){c.classList.remove('on');return;}var p=D.pushMoods[ks[0]];if(p.who===(D.user==='f'?'邓紫芊':'杨超')){c.classList.remove('on');return;}document.getElementById('pmE').textContent=MM[p.mood]||'😊';document.getElementById('pmT').textContent=(p.note||ML[p.mood]||'')+' · '+p.who;c.classList.add('on');}
 
 //===PET===
-function renderPet(){var h='';for(var i=0;i<pets.length;i++){var p=pets[i],s=D.curPet===i?'sel':'';h+='<div class="pet-opt '+s+'" onclick="pickPet('+i+')"><span class="po-e">'+p.emoji+'</span><div class="po-n">'+p.name+'</div><div class="po-d">'+p.desc+'</div></div>';}document.getElementById('petSel').innerHTML=h;updPetUI();}
+function renderPet(){var h='';for(var i=0;i<pets.length;i++){var p=pets[i],s=D.curPet===i?'sel':'';h+='<div class="pet-opt '+s+'" onclick="pickPet('+i+')"><div class="po-e">'+(petSVGs[p.svg]||p.emoji)+'</div><div class="po-n">'+p.name+'</div><div class="po-d">'+p.desc+'</div>'+(p.personality?'<span class="po-personality">'+p.personality+'</span>':'')+'</div>';}document.getElementById('petSel').innerHTML=h;updPetUI();}
 function pickPet(i){D.curPet=i;sv();renderPet();}
 function getStage(){var day=D.petDay||0;for(var i=stageThresh.length-1;i>=0;i--)if(day>=stageThresh[i])return i;return 0;}
-function updPetUI(){var p=pets[D.curPet],si=getStage(),st=p.stages[si],s=D.petStats[D.curPet];document.getElementById('petCh').textContent=p.emoji;document.getElementById('petTag').textContent=p.name;document.getElementById('psLv').textContent='Lv.'+si+' '+st.name;document.getElementById('psDesc').textContent=st.desc;document.getElementById('psDlg').textContent=st.dlg;document.getElementById('sHung').style.width=s.h+'%';document.getElementById('vHung').textContent=s.h+'%';document.getElementById('sMood').style.width=s.m+'%';document.getElementById('vMood').textContent=s.m+'%';document.getElementById('sLove').style.width=s.l+'%';document.getElementById('vLove').textContent=s.l+'%';var sc=document.getElementById('petStage');var actsHtml='<div class="pet-acts-bar">';for(var a=0;a<p.acts.length;a++)actsHtml+='<span class="pet-act-tag" data-act="'+p.acts[a]+'">'+p.acts[a]+'</span>';actsHtml+='</div><div style="font-size:11px;color:var(--tl);margin-top:6px;text-align:center;">互动天数: '+(D.petDay||0)+'天 · 下一阶段: '+(si<9?stageThresh[si+1]+'天':'已满级')+'</div>';sc.innerHTML='<div class="ps-lv" id="psLv">Lv.'+si+' '+st.name+'</div><div class="ps-desc" id="psDesc">'+st.desc+'</div><div class="ps-dialog" id="psDlg">'+st.dlg+'</div>'+actsHtml;setTimeout(function(){var tags=document.querySelectorAll('.pet-act-tag');for(var j=0;j<tags.length;j++){tags[j].addEventListener('click',function(){doPetAct(this,this.dataset.act);});}},0);var opts=document.querySelectorAll('.pet-opt');for(var i=0;i<opts.length;i++){if(i===D.curPet)opts[i].classList.add('sel');else opts[i].classList.remove('sel');}}
-function petTap(){var p=pets[D.curPet],si=getStage(),st=p.stages[si];showModal('🐾 '+p.name+' 说',"<div style='text-align:center;font-size:18px;padding:20px;'>"+st.dlg+"</div><div style='text-align:center;font-size:13px;color:var(--tl);margin-top:8px;'>当前阶段: "+st.name+"</div>");}
+function updPetUI(){var p=pets[D.curPet],si=getStage(),st=p.stages[si],s=D.petStats[D.curPet];document.getElementById('petCh').innerHTML=petSVGs[p.svg]||p.emoji;document.getElementById('petCh').className='pet-char-svg';document.getElementById('petTag').textContent=p.name;document.getElementById('psLv').textContent='Lv.'+si+' '+st.name;document.getElementById('psDesc').textContent=st.desc;document.getElementById('psDlg').textContent=st.dlg;document.getElementById('sHung').style.width=s.h+'%';document.getElementById('vHung').textContent=s.h+'%';document.getElementById('sMood').style.width=s.m+'%';document.getElementById('vMood').textContent=s.m+'%';document.getElementById('sLove').style.width=s.l+'%';document.getElementById('vLove').textContent=s.l+'%';var sc=document.getElementById('petStage');var actsHtml='<div class="pet-acts-bar">';for(var a=0;a<p.acts.length;a++)actsHtml+='<span class="pet-act-tag" data-act="'+p.acts[a]+'">'+p.acts[a]+'</span>';actsHtml+='</div><div style="font-size:11px;color:var(--tl);margin-top:6px;text-align:center;">互动天数: '+(D.petDay||0)+'天 · 下一阶段: '+(si<9?stageThresh[si+1]+'天':'已满级')+'</div>';var dotsHtml='<div class="ps-progress">';for(var d=0;d<10;d++)dotsHtml+='<div class="ps-dot '+(d<si?'done':(d===si?'cur':''))+'"></div>';dotsHtml+='</div>';sc.innerHTML='<div class="ps-lv" id="psLv">Lv.'+si+' '+st.name+'</div><div class="ps-desc" id="psDesc">'+st.desc+'</div><div class="ps-dialog" id="psDlg">'+st.dlg+'</div>'+actsHtml+dotsHtml;sc.innerHTML='<div class="ps-lv" id="psLv">Lv.'+si+' '+st.name+'</div><div class="ps-desc" id="psDesc">'+st.desc+'</div><div class="ps-dialog" id="psDlg">'+st.dlg+'</div>'+actsHtml;setTimeout(function(){var tags=document.querySelectorAll('.pet-act-tag');for(var j=0;j<tags.length;j++){tags[j].addEventListener('click',function(){doPetAct(this,this.dataset.act);});}},0);var opts=document.querySelectorAll('.pet-opt');for(var i=0;i<opts.length;i++){if(i===D.curPet)opts[i].classList.add('sel');else opts[i].classList.remove('sel');}}
+function petTap(){var p=pets[D.curPet],si=getStage(),st=p.stages[si];showModal('🐾 '+p.name+' 说','<div style="text-align:center;padding:20px;">'+(petSVGs[p.svg]||p.emoji)+'<div style="font-size:18px;margin-top:10px;">'+st.dlg+'</div></div><div style="text-align:center;font-size:13px;color:var(--tl);margin-top:8px;">当前阶段: '+st.name+'</div>');}
 function petDo(act){var s=D.petStats[D.curPet],gain=5;D.petDay=(D.petDay||0)+1;if(act==='feed'){s.h=Math.min(100,s.h+20);gain=10;}else if(act==='play'){s.m=Math.min(100,s.m+15);s.h=Math.max(0,s.h-10);gain=8;}else if(act==='bath'){s.m=Math.min(100,s.m+10);gain=5;}else if(act==='hug'){s.l=Math.min(100,s.l+12);s.m=Math.min(100,s.m+8);gain=5;}else if(act==='walk'){s.l=Math.min(100,s.l+8);s.m=Math.min(100,s.m+5);gain=6;}else if(act==='train'){s.l=Math.min(100,s.l+6);gain=7;}sv();updPetUI();addC(gain,document.getElementById('petCh'));var acts={feed:'🍖 喂食',play:'🎾 玩耍',bath:'🛁 洗澡',hug:'🤗 抱抱',walk:'🚶 散步',train:'🎓 训练'};toast(acts[act]+'成功！宠物成长中~');}
 function doPetAct(el,act){var p=pets[D.curPet],si=getStage();el.style.background='var(--p)';el.style.color='#fff';el.style.transform='scale(1.1)';setTimeout(function(){el.style.background='';el.style.color='';el.style.transform='';},400);D.petDay=(D.petDay||0)+1;D.petStats[D.curPet].l=Math.min(100,D.petStats[D.curPet].l+5);D.petStats[D.curPet].m=Math.min(100,D.petStats[D.curPet].m+5);sv();updPetUI();addC(3,el);showModal('🐾 '+p.name+' '+act+'啦！','<div style="text-align:center;"><div style="font-size:50px;padding:10px;">'+p.emoji+'</div><div style="font-size:18px;color:var(--pd);font-weight:700;margin:8px 0;">'+act+'</div><div style="font-size:14px;color:var(--tl);">'+p.stages[si].desc+'</div><div style="font-size:15px;margin-top:10px;font-style:italic;background:var(--pl);padding:10px;border-radius:12px;border:1px dashed var(--ac);">'+p.stages[si].dlg+'</div></div>');}
 
@@ -633,6 +706,13 @@ function serveCust(el){var earn=Math.floor(Math.random()*20)+5;D.cfExp+=earn;D.c
 function spawnCust(){setInterval(function(){if(!D.user)return;var sc=document.getElementById('cfScene');if(!sc||!sc.offsetParent)return;var c=document.createElement('div');c.className='cf-cust';c.style.left=Math.floor(Math.random()*80+10)+'px';c.style.bottom='12px';var em=['🚶','🧍‍♀️','👩','👨','🧑‍🦰'];c.textContent=em[Math.floor(Math.random()*em.length)];c.onclick=function(){serveCust(c);if(c.parentNode)sc.removeChild(c);};sc.appendChild(c);setTimeout(function(){if(c.parentNode)sc.removeChild(c);},8000);},5000);}
 function chkCfUp(){var nx=cfLvls[D.cfLv];if(nx&&D.cfExp>=stageThresh[D.cfLv]*3){D.cfLv++;sv();showModal('🎉 升级！','<div style="text-align:center;padding:20px;"><div style="font-size:60px;">🎊</div><p style="font-size:18px;color:var(--pd);margin-top:10px;font-weight:700;">小店升级到 Lv.'+D.cfLv+'</p><p style="font-size:14px;color:var(--tl);margin-top:6px;">'+cfLvls[D.cfLv-1].n+'</p></div>');renderCafe();}}
 
+
+
+//===STEP SYSTEM===
+function renderSteps(){if(!D.steps)D.steps={today:0,goal:8000,history:{},lastUpdate:null};var td=new Date().toISOString().split('T')[0];if(D.steps.lastUpdate!==td){D.steps.today=0;D.steps.lastUpdate=td;}document.getElementById('stepCount').textContent=D.steps.today;document.getElementById('stepGoal').textContent=D.steps.goal;var cal=Math.floor(D.steps.today*0.04);var dist=(D.steps.today*0.0007).toFixed(1);document.getElementById('stepCal').textContent=cal;document.getElementById('stepDist').textContent=dist;var pct=Math.min(1,D.steps.today/D.steps.goal);var circ=2*Math.PI*42;var offset=circ*(1-pct);var ring=document.getElementById('stepRing');if(ring)ring.setAttribute('stroke-dashoffset',offset);renderStepHist();}
+function addSteps(){var add=Math.floor(Math.random()*2000)+500;D.steps.today+=add;if(!D.steps.history)D.steps.history={};var td=new Date().toISOString().split('T')[0];if(!D.steps.history[td])D.steps.history[td]=0;D.steps.history[td]+=add;sv();renderSteps();addC(Math.floor(add/100));if(D.steps.today>=D.steps.goal){toast('🎉 今日步数目标达成！');D.intimacy+=5;addIntm(5);}else{toast('🚶 +'+add+'步！继续加油~');}}
+function renderStepHist(){var g=document.getElementById('stepHistory');if(!g)return;var h='';for(var i=6;i>=0;i--){var d=new Date();d.setDate(d.getDate()-i);var ds=d.toISOString().split('T')[0];var v=(D.steps.history&&D.steps.history[ds])||0;var isToday=ds===new Date().toISOString().split('T')[0];var reached=v>=D.steps.goal;h+='<div class="step-dot '+(isToday?'today':(reached?'on':''))+'" title="'+ds+': '+v+'步"></div>';}g.innerHTML=h;}
+function startStepTimer(){setInterval(function(){if(!D.user)return;if(!D.steps)D.steps={today:0,goal:8000,history:{},lastUpdate:null};if(Math.random()>0.7){var add=Math.floor(Math.random()*200)+50;D.steps.today+=add;var td=new Date().toISOString().split('T')[0];if(!D.steps.history)D.steps.history={};if(!D.steps.history[td])D.steps.history[td]=0;D.steps.history[td]+=add;sv();renderSteps();}},30000);}
 
 //===COUPLE & CHECKIN SYSTEM===
 var intmLevels=[{lv:1,name:'初识',title:'甜蜜新手',need:0},{lv:2,name:'暧昧',title:'心动信号',need:100},{lv:3,name:'表白',title:'专属恋人',need:300},{lv:4,name:'热恋',title:'热恋情侣',need:600},{lv:5,name:'默契',title:'灵魂伴侣',need:1000},{lv:6,name:'守护',title:'终身挚爱',need:1500},{lv:7,name:'永恒',title:'神仙眷侣',need:2500}];
